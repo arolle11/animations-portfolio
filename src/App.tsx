@@ -1,17 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
-  return (
-    <Router>
-      <div className="h-screen w-screen bg-red-500">
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </div>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
