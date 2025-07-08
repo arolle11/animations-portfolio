@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "animation/:id",
+        path: "animation/:name",
         element: <AnimationPage />,
       },
     ],
