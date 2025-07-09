@@ -8,14 +8,14 @@ const ButtonAnimation = () => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-primary text-white rounded"
+        className="px-4 py-2 bg-primary text-white rounded-full"
       >
         Hover and Click Me
       </motion.button>
       <motion.button
         drag
         whileDrag={{ scale: 1.2 }}
-        className="px-4 py-2 bg-green-400 text-white rounded"
+        className="px-4 py-2 bg-green-400 text-white rounded-full"
       >
         Hover and Click Me
       </motion.button>
@@ -23,7 +23,7 @@ const ButtonAnimation = () => {
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         transition={{ duration: 1 }}
-        className="relative overflow-hidden px-4 py-2 border border-purple-400 rounded text-purple-400 group"
+        className="relative overflow-hidden px-4 py-2 border border-purple-400 rounded-full text-purple-400 group"
       >
         <span
           className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 -translate-x-full group-hover:-translate-x-0 transition-transform duration-500 ease-in-out"
@@ -83,6 +83,17 @@ const ButtonAnimation = () => {
           )}
         </span>
       </motion.button>
+      {/* <motion.button
+        whileHover={{ backgroundColor: "#4caf50" }}
+        className="px-4 py-2 bg-[#535afa] text-white rounded-full"
+      >
+        <p className="flex items-center justify-center gap-2">
+          <span className="hover:rotate-60 ">
+            <Send size={20} />
+          </span>{" "}
+          Hover Me
+        </p>
+      </motion.button> */}
     </div>
   );
 };

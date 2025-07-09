@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const animations = [{ name: "ButtonAnimation", title: "Button Animation" }];
+  const animations = [
+    { name: "ButtonAnimation", title: "Button Animation" },
+    { name: "HamburgerMenus", title: "Hamburger Menus" },
+  ];
   return (
     <div className="grid max:md-grid-flow-col md:grid-cols-4 h-screen min-h-screen bg-white overflow-scroll pb-10">
       {animations.map((animation) => (

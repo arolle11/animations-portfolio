@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
+import HamburgerMenus from "../components/animations/HamburgerMenus";
 import { MoveLeft } from "lucide-react";
 const AnimationPage = () => {
   const { name } = useParams();
@@ -9,6 +10,13 @@ const AnimationPage = () => {
       title: "Button Animations",
       description:
         "A collection of button animations featuring smooth scaling, color transitions, and ripple effects on hover and click.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    HamburgerMenus: {
+      component: <HamburgerMenus />,
+      title: "Hamburger Menus",
+      description:
+        "creative hamburger menus animation that transforms into a close icon with smooth transitions.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
