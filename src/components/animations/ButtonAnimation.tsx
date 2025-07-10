@@ -49,7 +49,7 @@ const ButtonAnimation = () => {
         </span>
       </motion.button>
 
-      <motion.button
+      {/* <motion.button
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         className="relative overflow-hidden px-6 py-3 border border-black rounded-full text-black bg-white group"
@@ -82,7 +82,7 @@ const ButtonAnimation = () => {
             "Hover and Click Me"
           )}
         </span>
-      </motion.button>
+      </motion.button> */}
       {/* <motion.button
         whileHover={{ backgroundColor: "#4caf50" }}
         className="px-4 py-2 bg-[#535afa] text-white rounded-full"
