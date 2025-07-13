@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +8,7 @@ const SideBar = () => {
     setIsOpen(!isOpen);
   };
   const closeSideBar = () => setIsOpen(false);
+
   return (
     <div className="bg-white relative md:border-r-2 md:border-[#e8e8e8] h-full">
       <button
@@ -36,8 +38,14 @@ const SideBar = () => {
         <div className="px-4 pt-8">
           <h2 className="text-primary text-lg ">Beginners</h2>
           <ul className="text-secondary text-lg pt-4 space-y-2 cursor-pointer">
-            <li>Button Hover</li>
-            <li>Animated Loader</li>
+            <li>
+              {" "}
+              <Link to={`/animation/ButtonAnimation`}>Button Hover</Link>{" "}
+            </li>
+            <li>
+              {" "}
+              <Link>Animated Loader</Link>{" "}
+            </li>
           </ul>
           <h2 className="text-primary text-lg pt-8">Intermediate</h2>
           <ul className="text-secondary text-lg pt-4 space-y-2 cursor-pointer">
