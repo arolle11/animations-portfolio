@@ -7,12 +7,6 @@ const Home = () => {
   // ];
   return (
     <div className="grid max:md-grid-flow-col md:grid-cols-4 h-screen min-h-screen bg-white overflow-scroll pb-10">
-      <div className=" flex items-center justify-center">
-        <h1 className="text-2xl font-bold text-primary">
-          Animations Portfolio
-        </h1>
-      </div>
-
       {/* {animations.map((animation) => (
         <Link key={animation.name} to={`/animation/${animation.name}`}>
           <div className="flex flex-col items-center justify-center p-4 m-2  hover:shadow-lg transition-shadow duration-300">
