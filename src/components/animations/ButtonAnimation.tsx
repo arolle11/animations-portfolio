@@ -1,22 +1,25 @@
-import { ArrowRight, Check, Heart, Plus, Tally1 } from "lucide-react";
+import { ArrowRight, Check, Heart, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 const ButtonAnimation = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
-  const [showIcon, setShowIcon] = useState(false);
+  const [isReversed, setIsReversed] = useState(false);
+  const [isGlideOver, setIsGlideOver] = useState(false);
+  const [isBlurLift, setIsBlurLift] = useState(false);
+  // const [showIcon, setShowIcon] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 200);
-    setTimeout(() => setShowIcon(true), 200);
+    // setTimeout(() => setShowIcon(true), 200);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setShowIcon(false);
+    // setShowIcon(false);
   };
   return (
     <div className="grid max:sm-grid-flow-col sm:grid-cols-3 gap-12 mt-4">
@@ -49,7 +52,7 @@ const ButtonAnimation = () => {
           className="h-10 bg-[#d35ffa] text-white cursor-pointer flex items-center justify-center overflow-hidden"
         >
           <AnimatePresence>
-            {isHovered && showIcon ? (
+            {isHovered ? (
               <motion.div
                 key="icon"
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -83,38 +86,123 @@ const ButtonAnimation = () => {
       </motion.div>
 
       <motion.button
-        initial={{ background: "#ffffff" }}
-        animate={{
-          x: [0, -5, 0, 5, 0],
-          background: isHovered2 ? "#ff5a45" : "#ffffff",
-        }}
         onMouseEnter={() => setIsHovered2(true)}
         onMouseLeave={() => setIsHovered2(false)}
-        className="px-4 py-2 bg-gray-100/50 transition-colors duration-300 text-white rounded-full cursor-pointer flex items-center justify-center shadow-md"
+        className="relative overflow-hidden px-4 py-2 rounded-full cursor-pointer flex items-center justify-center shadow-md transition-colors duration-300 bg-gray-100/50"
       >
-        <Heart
-          size={20}
-          color={isHovered2 ? "#ffffff" : "#ff5a45"}
-          fill={isHovered2 ? "#ffffff" : "#ff5a45"}
+        <motion.span
+          initial={{ scale: 0 }}
+          animate={{ scale: isHovered2 ? 2 : 0 }}
+          transition={{
+            duration: isHovered2 ? 0.5 : 0,
+            ease: "easeInOut",
+          }}
+          className="absolute inset-0 bg-[#ff5a45] rounded-full z-0"
         />
+        <motion.div
+          animate={{ scale: isHovered2 ? 1.2 : 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 10,
+          }}
+          className="z-10"
+        >
+          <Heart
+            size={20}
+            color={isHovered2 ? "#ffffff" : "#ff5a45"}
+            fill={isHovered2 ? "#ffffff" : "#ff5a45"}
+          />
+        </motion.div>
       </motion.button>
       {/* simple button */}
 
       {/* reverse button */}
-      <motion.button className="px-4 py-2 bg-black/80 text-white rounded-full">
-        <motion.span>Blur-Lift</motion.span>
-      </motion.button>
+      <motion.button
+        onMouseEnter={() => setIsBlurLift(true)}
+        onMouseLeave={() => setIsBlurLift(false)}
+        className="px-4 py-2 bg-black/80 text-white rounded-full relative overflow-hidden  flex items-center justify-center"
+      >
+        {/* Texte Blur-Lift */}
+        <motion.span
+          initial={false}
+          animate={{
+            y: isBlurLift ? -40 : 0,
+            opacity: isBlurLift ? 0 : 1,
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="absolute"
+        >
+          Blur-Lift
+        </motion.span>
 
-      <motion.button className="px-4 py-2 bg-black/80 text-white rounded-full">
-        <motion.span className="flex items-center gap-2">
-          Glide-Over <ArrowRight size={20} />
+        {/* Texte Call 🤙🏼 */}
+        <motion.span
+          initial={false}
+          animate={{
+            y: isBlurLift ? 0 : 40,
+            opacity: isBlurLift ? 1 : 0,
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="absolute flex items-center gap-2"
+        >
+          Call <span>🤙🏼</span>
         </motion.span>
       </motion.button>
 
-      <motion.button className="px-4 py-2 bg-black/80 text-white rounded-full">
-        <motion.span className="flex items-center">
-          <Tally1 size={20} /> Vortex-Blur
+      <motion.button
+        onMouseEnter={() => setIsGlideOver(true)}
+        onMouseLeave={() => setIsGlideOver(false)}
+        className="relative overflow-hidden px-6 py-2 bg-black/80 text-white rounded-full flex items-center gap-2"
+      >
+        <motion.span
+          initial={{ x: -40, opacity: 0 }}
+          animate={{
+            x: isGlideOver ? 0 : -40,
+            opacity: isGlideOver ? 1 : 0,
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="absolute left-4"
+        >
+          <ArrowRight size={20} />
         </motion.span>
+
+        <motion.span
+          initial={{ x: 0 }}
+          animate={{
+            x: isGlideOver ? 20 : 0,
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        >
+          Glide-Over
+        </motion.span>
+
+        <motion.span
+          initial={{ x: 0, opacity: 1 }}
+          animate={{
+            x: isGlideOver ? 40 : 0,
+            opacity: isGlideOver ? 0 : 1,
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="absolute right-4"
+        >
+          <ArrowRight size={20} />
+        </motion.span>
+      </motion.button>
+
+      <motion.button
+        onMouseEnter={() => setIsReversed(true)}
+        onMouseLeave={() => setIsReversed(false)}
+        whileHover={{ scale: 1.1 }}
+        className="px-4 py-2 bg-black/80 text-white rounded-full flex items-center justify-center gap-2"
+      >
+        <motion.span
+          className="inline-block origin-center p-[3px] rounded-full h-4  bg-white"
+          initial={{ rotate: 0 }}
+          animate={{ rotate: isReversed ? 360 : 0 }}
+          transition={{ duration: 0.5, ease: "linear" }}
+        ></motion.span>
+        Vortex-Blur
       </motion.button>
       {/* reverse button */}
 
