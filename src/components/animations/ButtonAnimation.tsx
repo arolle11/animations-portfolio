@@ -1,5 +1,5 @@
 import { ArrowRight, Check, Heart, Plus } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useAnimation } from "motion/react";
 import { useState } from "react";
 const ButtonAnimation = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -7,19 +7,29 @@ const ButtonAnimation = () => {
   const [isReversed, setIsReversed] = useState(false);
   const [isGlideOver, setIsGlideOver] = useState(false);
   const [isBlurLift, setIsBlurLift] = useState(false);
-  // const [showIcon, setShowIcon] = useState(false);
+  const [isHover, setIsHover] = useState(false);
+  const [isHover2, setIsHover2] = useState(false);
+  const [isHover3, setIsHover3] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-
+  const [showIcon, setShowIcon] = useState(false);
+  const controls = useAnimation();
+  const handleHover = () => {
+    controls.start({
+      x: [0, -6, 0],
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    });
+  };
   const handleMouseEnter = () => {
     setIsHovered(true);
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 200);
-    // setTimeout(() => setShowIcon(true), 200);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    // setShowIcon(false);
   };
   return (
     <div className="grid max:sm-grid-flow-col sm:grid-cols-3 gap-12 mt-4">
@@ -27,7 +37,7 @@ const ButtonAnimation = () => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-primary text-white rounded-md cursor-pointer"
+        className="px-4 py-2 bg-primary text-white rounded-md"
       >
         Simple Button
       </motion.button>
@@ -49,7 +59,7 @@ const ButtonAnimation = () => {
             borderRadius: { duration: 0.2, ease: "easeInOut" },
             scale: { type: "spring", stiffness: 500, damping: 15 },
           }}
-          className="h-10 bg-[#d35ffa] text-white cursor-pointer flex items-center justify-center overflow-hidden"
+          className="h-10 bg-[#d35ffa] text-white flex items-center justify-center overflow-hidden"
         >
           <AnimatePresence>
             {isHovered ? (
@@ -88,7 +98,7 @@ const ButtonAnimation = () => {
       <motion.button
         onMouseEnter={() => setIsHovered2(true)}
         onMouseLeave={() => setIsHovered2(false)}
-        className="relative overflow-hidden px-4 py-2 rounded-full cursor-pointer flex items-center justify-center shadow-md transition-colors duration-300 bg-gray-100/50"
+        className="relative overflow-hidden px-4 py-2 rounded-full flex items-center justify-center shadow-md transition-colors duration-300 bg-gray-100/50"
       >
         <motion.span
           initial={{ scale: 0 }}
@@ -207,23 +217,95 @@ const ButtonAnimation = () => {
       {/* reverse button */}
 
       {/* Playful button hovers */}
-      <motion.button className="px-4 py-2 bg-[#362a89] text-white rounded-full">
-        <motion.span>Button</motion.span>
+      <motion.button
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        className="relative px-6 py-3 bg-[#362a89] rounded-full overflow-hidden text-white font-semibold"
+      >
+        {/* Background fill */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-full bg-primary rounded-full"
+          initial={{ height: "0%" }}
+          animate={{ height: isHover ? "100%" : "0%" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          style={{ zIndex: 0 }}
+        />
+
+        {/* Text with pull-down bounce */}
+        <motion.span
+          className="relative z-10 block"
+          animate={isHover ? { y: [0, 0, 8, 0, 0] } : { y: [0, 0, -8, 0, 0] }}
+          transition={{
+            duration: 0.4,
+            ease: "easeInOut",
+          }}
+        >
+          Button
+        </motion.span>
       </motion.button>
 
-      <motion.button className="px-4 py-2 bg-[#362a89] text-white rounded-full">
-        <motion.span>Playful hover</motion.span>
+      <motion.button
+        onMouseEnter={() => setIsHover3(true)}
+        onMouseLeave={() => setIsHover3(false)}
+        className="relative px-6 py-3 bg-[#362a89] rounded-full overflow-hidden text-white font-semibold"
+      >
+        {/* Background fill */}
+        <motion.div
+          className="absolute bottom-0 left-0 w-full bg-gray-100/50 rounded-full"
+          initial={{ height: "0%" }}
+          animate={{ height: isHover3 ? "100%" : "0%" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          style={{ zIndex: 0 }}
+        />
+
+        {/* Text with pull-down bounce */}
+        <motion.span
+          className="relative z-10 block"
+          animate={isHover3 ? { y: [0, 8, 0] } : { y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: "easeInOut",
+          }}
+        >
+          Playful hover
+        </motion.span>
       </motion.button>
 
-      <motion.button className="px-4 py-2 bg-[#362a89] text-white rounded-full">
-        <motion.span>Simple</motion.span>
+      <motion.button
+        onMouseEnter={() => setIsHover2(true)}
+        onMouseLeave={() => setIsHover2(false)}
+        className="px-4 py-2 bg-[#362a89] text-white rounded-full"
+      >
+        <motion.span
+          className="relative z-10 block"
+          animate={isHover2 ? { y: [0, 8, 0] } : { y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: "easeInOut",
+          }}
+        >
+          Simple
+        </motion.span>
       </motion.button>
       {/* Playful button hovers */}
 
       {/* Follow Buttons */}
-      <motion.button className="px-4 py-2 bg-[#2b2f44] text-white rounded-full ">
-        <motion.span className="flex items-center justify-center gap-2">
-          Follow <Plus size={20} />
+      <motion.button
+        onMouseEnter={() => {
+          setShowIcon(true);
+          handleHover();
+        }}
+        onMouseLeave={() => {
+          setShowIcon(false);
+          handleHover();
+        }}
+        className="px-4 py-2 bg-[#2b2f44] text-white rounded-full"
+      >
+        <motion.span
+          animate={controls}
+          className="flex items-center justify-center gap-2"
+        >
+          Follow {showIcon && <Plus size={20} />}
         </motion.span>
       </motion.button>
 
