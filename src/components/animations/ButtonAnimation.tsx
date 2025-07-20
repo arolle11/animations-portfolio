@@ -183,7 +183,7 @@ const ButtonAnimation = () => {
             duration: isHovered2 ? 0.5 : 0,
             ease: "easeInOut",
           }}
-          className="absolute inset-0 bg-[#ff5a45] rounded-full z-0"
+          className="absolute inset-0 bg-red-500 rounded-full z-0"
         />
         <motion.div
           animate={{ scale: isHovered2 ? 1.2 : 1 }}
@@ -196,8 +196,8 @@ const ButtonAnimation = () => {
         >
           <Heart
             size={20}
-            color={isHovered2 ? "#ffffff" : "#ff5a45"}
-            fill={isHovered2 ? "#ffffff" : "#ff5a45"}
+            color={isHovered2 ? "#ffffff" : "red"}
+            fill={isHovered2 ? "#ffffff" : "red"}
           />
         </motion.div>
       </motion.button>
