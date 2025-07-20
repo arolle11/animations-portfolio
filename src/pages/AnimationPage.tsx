@@ -23,7 +23,7 @@ const AnimationPage = () => {
   const animation = animations[name];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white p-4 max-md:p-2 max-md:overflow-y-auto">
+    <div className="h-screen flex flex-col bg-white p-4 max-md:p-2 overflow-y-auto">
       <div className="self-start mb-4 pt-8 pl-16">
         <Link to="/" className="text-primary flex items-center gap-2">
           <MoveLeft /> Back to Home
@@ -44,7 +44,7 @@ const AnimationPage = () => {
         </div>
       </div>
 
-      <footer className="mb-4">
+      <footer className="mb-8 md:mb-4">
         <div className="text-center text-gray-500 text-sm py-4 text-pretty">
           © 2025 Animations Portfolio - designed by{" "}
           <Link to="https://arollefona.me/" className="text-primary">

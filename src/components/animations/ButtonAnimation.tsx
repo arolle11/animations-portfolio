@@ -1,6 +1,16 @@
-import { ArrowRight, Check, Heart, Plus } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Cherry,
+  Heart,
+  Plus,
+  ShoppingCart,
+} from "lucide-react";
 import { AnimatePresence, motion, useAnimation } from "motion/react";
 import { useState } from "react";
+import facebook from "../../assets/images/facebook.png";
+import pinterest from "../../assets/images/pinterest.png";
+import twitter from "../../assets/images/twitter.png";
 const ButtonAnimation = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -8,11 +18,15 @@ const ButtonAnimation = () => {
   const [isGlideOver, setIsGlideOver] = useState(false);
   const [isBlurLift, setIsBlurLift] = useState(false);
   const [isHover, setIsHover] = useState(false);
-  const [isHover2, setIsHover2] = useState(false);
   const [isHover3, setIsHover3] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
+  const [showSocial, setShowSocial] = useState(false);
+  const [showIcons, setShowIcons] = useState(false);
+  const [selected, setSelected] = useState(null);
   const controls = useAnimation();
+  const [iconPos, setIconPos] = useState({ x: 0 });
+  const [isClicked2, setIsClicked2] = useState(false);
   const handleHover = () => {
     controls.start({
       x: [0, -6, 0],
@@ -31,15 +45,77 @@ const ButtonAnimation = () => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4 },
+    },
+  };
+
+  const socialColors = {
+    twitter: "#189cf1",
+    facebook: "#0792f4",
+    pinterest: "#be0519",
+  };
+
+  const handleSelect = (platform, e) => {
+    const buttonRect = e.currentTarget.parentElement.getBoundingClientRect();
+    const iconRect = e.currentTarget.getBoundingClientRect();
+    const offsetX =
+      iconRect.left +
+      iconRect.width / 2 -
+      (buttonRect.left + buttonRect.width / 2);
+    setIconPos({ x: offsetX });
+    setSelected(platform);
+  };
+
+  const iconList = [
+    { name: "twitter", src: twitter },
+    { name: "facebook", src: facebook },
+    { name: "pinterest", src: pinterest },
+  ];
+
+  const otherContainerVariants = {
+    visible: {
+      transition: { staggerChildren: 0.2 },
+    },
+    hidden: {},
+  };
+
+  const iconVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.4 },
+    },
+    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
+  };
+  const handleClick2 = () => {
+    setIsClicked2(true);
+    setTimeout(() => setIsClicked2(false), 2000);
+  };
   return (
     <div className="grid max:sm-grid-flow-col sm:grid-cols-3 gap-12 mt-4">
       {/* simple button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-primary text-white rounded-md"
+        className="px-4 py-2 bg-primary text-white rounded-full w-44 h-12"
       >
-        Simple Button
+        Hover Button
       </motion.button>
 
       <motion.div
@@ -48,9 +124,9 @@ const ButtonAnimation = () => {
         onMouseLeave={handleMouseLeave}
       >
         <motion.button
-          initial={{ width: 164, borderRadius: "1.5rem", scale: 1 }}
+          initial={{ width: 175, borderRadius: "1.5rem", scale: 1 }}
           animate={{
-            width: isHovered ? 40 : 164,
+            width: isHovered ? 45 : 175,
             borderRadius: isHovered ? "50%" : "1.5rem",
             scale: isClicked ? 1.1 : 1,
           }}
@@ -59,7 +135,7 @@ const ButtonAnimation = () => {
             borderRadius: { duration: 0.2, ease: "easeInOut" },
             scale: { type: "spring", stiffness: 500, damping: 15 },
           }}
-          className="h-10 bg-[#d35ffa] text-white flex items-center justify-center overflow-hidden"
+          className="h-12 bg-[#d35ffa] text-white flex items-center justify-center overflow-hidden"
         >
           <AnimatePresence>
             {isHovered ? (
@@ -87,7 +163,7 @@ const ButtonAnimation = () => {
                   className="px-2 fixed
                   "
                 >
-                  Simple Button
+                  Click button
                 </motion.span>
               )
             )}
@@ -98,7 +174,7 @@ const ButtonAnimation = () => {
       <motion.button
         onMouseEnter={() => setIsHovered2(true)}
         onMouseLeave={() => setIsHovered2(false)}
-        className="relative overflow-hidden px-4 py-2 rounded-full flex items-center justify-center shadow-md transition-colors duration-300 bg-gray-100/50"
+        className="relative overflow-hidden px-4 py-2 rounded-full flex items-center justify-center shadow-md transition-colors duration-300 bg-gray-100/50 w-44 h-12"
       >
         <motion.span
           initial={{ scale: 0 }}
@@ -127,11 +203,184 @@ const ButtonAnimation = () => {
       </motion.button>
       {/* simple button */}
 
+      {/* Follow Buttons */}
+      <motion.button
+        onMouseEnter={() => {
+          setShowIcon(true);
+          handleHover();
+        }}
+        onMouseLeave={() => {
+          setShowIcon(false);
+          handleHover();
+        }}
+        className="px-4 py-2 bg-[#2b2f44] text-white rounded-full w-44 h-12"
+      >
+        <motion.span
+          animate={controls}
+          className="flex items-center justify-center gap-2"
+        >
+          Follow {showIcon && <Plus size={20} />}
+        </motion.span>
+      </motion.button>
+
+      <motion.button
+        onMouseEnter={() => setShowSocial(true)}
+        onMouseLeave={() => setShowSocial(false)}
+        initial={{ background: "#2b2f44", color: "white" }}
+        whileHover={{
+          background: "#f9f9fa",
+          color: "#2b2f44",
+          boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)",
+        }}
+        className="relative px-6 py-4 bg-[#2b2f44] text-white rounded-full overflow-hidden w-44 h-12"
+      >
+        {/* Texte Follow centré */}
+        <AnimatePresence>
+          {!showSocial && (
+            <motion.span
+              className="absolute inset-0 flex justify-center items-center"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              Follow
+            </motion.span>
+          )}
+        </AnimatePresence>
+
+        {/* Icônes + followers */}
+        {showSocial && (
+          <motion.div
+            className="absolute inset-0 flex justify-center items-center gap-6"
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              className="flex flex-col items-center gap-1"
+              variants={containerVariants}
+            >
+              <motion.span variants={itemVariants}>
+                <img src={twitter} alt="twitter" className="w-3 h-3" />
+              </motion.span>
+              <motion.span variants={itemVariants} className="text-xs">
+                17k
+              </motion.span>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col items-center gap-1"
+              variants={containerVariants}
+            >
+              <motion.span variants={itemVariants}>
+                <img src={facebook} alt="facebook" className="w-3 h-3" />
+              </motion.span>
+              <motion.span variants={itemVariants} className="text-xs">
+                25k
+              </motion.span>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col items-center gap-1"
+              variants={containerVariants}
+            >
+              <motion.span variants={itemVariants}>
+                <img src={pinterest} alt="pinterest" className="w-3 h-3" />
+              </motion.span>
+              <motion.span variants={itemVariants} className="text-xs">
+                03k
+              </motion.span>
+            </motion.div>
+          </motion.div>
+        )}
+      </motion.button>
+
+      <motion.button
+        onMouseEnter={() => setShowIcons(true)}
+        onMouseLeave={() => {
+          setShowIcons(false);
+          setSelected(null);
+          setIconPos({ x: 0 });
+        }}
+        animate={{
+          backgroundColor: selected ? socialColors[selected] : "#2b2f44",
+        }}
+        transition={{ duration: 0.4 }}
+        className="relative px-6 py-3 text-white rounded-full overflow-hidden w-44 h-12 flex justify-center items-center"
+      >
+        {/* Texte Follow */}
+        <AnimatePresence>
+          {!showIcons && !selected && (
+            <motion.span
+              key="follow-text"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="absolute"
+            >
+              Follow
+            </motion.span>
+          )}
+        </AnimatePresence>
+
+        {/* Icônes */}
+        <AnimatePresence>
+          {showIcons && !selected && (
+            <motion.div
+              key="icons"
+              className="flex gap-5"
+              variants={otherContainerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {iconList.map((icon) => (
+                <motion.div
+                  key={icon.name}
+                  variants={iconVariants}
+                  className="relative cursor-pointer"
+                  onClick={(e) => handleSelect(icon.name, e)}
+                >
+                  <img src={icon.src} alt={icon.name} className="w-5 h-5" />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+
+          {/* Icône se déplaçant vers le centre puis remplacée par Check */}
+          {selected && (
+            <motion.div
+              key="center-icon"
+              initial={{ x: iconPos.x, scale: 1, opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              className="absolute"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 0, 1.2, 1] }}
+                transition={{
+                  duration: 0.6,
+                  times: [0, 0.3, 0.7, 1],
+                  ease: "easeOut",
+                }}
+                className="flex items-center justify-center"
+              >
+                <Check size={24} />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
+      {/* Follow Buttons */}
+
       {/* reverse button */}
       <motion.button
         onMouseEnter={() => setIsBlurLift(true)}
         onMouseLeave={() => setIsBlurLift(false)}
-        className="px-4 py-2 bg-black/80 text-white rounded-full relative overflow-hidden  flex items-center justify-center"
+        className="px-4 py-2 bg-black/80 text-white rounded-full relative overflow-hidden  flex items-center justify-center w-44 h-12"
       >
         {/* Texte Blur-Lift */}
         <motion.span
@@ -163,7 +412,7 @@ const ButtonAnimation = () => {
       <motion.button
         onMouseEnter={() => setIsGlideOver(true)}
         onMouseLeave={() => setIsGlideOver(false)}
-        className="relative overflow-hidden px-6 py-2 bg-black/80 text-white rounded-full flex items-center gap-2"
+        className="relative overflow-hidden px-6 py-2 bg-black/80 text-white rounded-full flex items-center gap-2 w-44 h-12"
       >
         <motion.span
           initial={{ x: -40, opacity: 0 }}
@@ -204,7 +453,7 @@ const ButtonAnimation = () => {
         onMouseEnter={() => setIsReversed(true)}
         onMouseLeave={() => setIsReversed(false)}
         whileHover={{ scale: 1.1 }}
-        className="px-4 py-2 bg-black/80 text-white rounded-full flex items-center justify-center gap-2"
+        className="px-4 py-2 bg-black/80 text-white rounded-full flex items-center justify-center gap-2 w-44 h-12"
       >
         <motion.span
           className="inline-block origin-center p-[3px] rounded-full h-4  bg-white"
@@ -217,41 +466,32 @@ const ButtonAnimation = () => {
       {/* reverse button */}
 
       {/* Playful button hovers */}
+
       <motion.button
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative px-6 py-3 bg-[#362a89] rounded-full overflow-hidden text-white font-semibold"
+        className="px-4 py-2 bg-[#362a89] text-white rounded-full w-44 h-12"
       >
-        {/* Background fill */}
-        <motion.div
-          className="absolute bottom-0 left-0 w-full bg-primary rounded-full"
-          initial={{ height: "0%" }}
-          animate={{ height: isHover ? "100%" : "0%" }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          style={{ zIndex: 0 }}
-        />
-
-        {/* Text with pull-down bounce */}
         <motion.span
           className="relative z-10 block"
-          animate={isHover ? { y: [0, 0, 8, 0, 0] } : { y: [0, 0, -8, 0, 0] }}
+          animate={isHover ? { y: [0, 8, 0] } : { y: 0 }}
           transition={{
             duration: 0.4,
             ease: "easeInOut",
           }}
         >
-          Button
+          Simple
         </motion.span>
       </motion.button>
 
       <motion.button
         onMouseEnter={() => setIsHover3(true)}
         onMouseLeave={() => setIsHover3(false)}
-        className="relative px-6 py-3 bg-[#362a89] rounded-full overflow-hidden text-white font-semibold"
+        className="relative px-6 py-3 bg-[#362a89] rounded-full overflow-hidden text-white font-semibold w-44 h-12"
       >
         {/* Background fill */}
         <motion.div
-          className="absolute bottom-0 left-0 w-full bg-gray-100/50 rounded-full"
+          className="absolute bottom-0 left-0 w-full bg-black/80 rounded-full"
           initial={{ height: "0%" }}
           animate={{ height: isHover3 ? "100%" : "0%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -272,67 +512,69 @@ const ButtonAnimation = () => {
       </motion.button>
 
       <motion.button
-        onMouseEnter={() => setIsHover2(true)}
-        onMouseLeave={() => setIsHover2(false)}
-        className="px-4 py-2 bg-[#362a89] text-white rounded-full"
+        onClick={handleClick2}
+        className="px-4 py-2 bg-[#4f41eb] text-white rounded-full w-44 h-12 overflow-hidden relative"
+        whileTap={!isClicked2 ? { scale: 0.95 } : {}}
       >
-        <motion.span
-          className="relative z-10 block"
-          animate={isHover2 ? { y: [0, 8, 0] } : { y: 0 }}
-          transition={{
-            duration: 0.4,
-            ease: "easeInOut",
-          }}
-        >
-          Simple
-        </motion.span>
+        <AnimatePresence mode="wait">
+          {!isClicked2 ? (
+            // État initial
+            <motion.span
+              key="initial"
+              className="flex items-center justify-center gap-2 w-full"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ShoppingCart size={20} />
+              Add to Cart
+            </motion.span>
+          ) : (
+            // Séquence d'animation après clic
+            <>
+              {/* Étape 1: Check qui tombe dans le panier (centré) */}
+              <motion.div
+                key="check-fall"
+                className="absolute inset-0 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="flex items-center justify-center relative"
+                  initial={{ x: 0 }}
+                  animate={{ x: "500%" }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                >
+                  <ShoppingCart size={20} />
+                  <motion.div
+                    initial={{ y: -30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                    className="absolute"
+                  >
+                    <Cherry size={12} />
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+
+              {/* État initial qui revient après 5s (invisible pendant l'animation) */}
+              <motion.span
+                key="return"
+                className="flex items-center justify-center gap-2 w-full absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0 }}
+                exit={{ opacity: 1 }}
+              >
+                <ShoppingCart size={20} />
+                Add to Cart
+              </motion.span>
+            </>
+          )}
+        </AnimatePresence>
       </motion.button>
+
       {/* Playful button hovers */}
-
-      {/* Follow Buttons */}
-      <motion.button
-        onMouseEnter={() => {
-          setShowIcon(true);
-          handleHover();
-        }}
-        onMouseLeave={() => {
-          setShowIcon(false);
-          handleHover();
-        }}
-        className="px-4 py-2 bg-[#2b2f44] text-white rounded-full"
-      >
-        <motion.span
-          animate={controls}
-          className="flex items-center justify-center gap-2"
-        >
-          Follow {showIcon && <Plus size={20} />}
-        </motion.span>
-      </motion.button>
-
-      <motion.button className="px-4 py-2 bg-[#2b2f44] text-white rounded-full ">
-        <motion.span>Follow</motion.span>
-      </motion.button>
-
-      <motion.button className="px-4 py-2 bg-[#2b2f44] text-white rounded-full ">
-        <motion.span>Follow</motion.span>
-      </motion.button>
-      {/* Follow Buttons */}
-
-      {/* Add to Cart */}
-      <motion.button className="px-4 py-2 bg-[#4f41eb] text-white rounded-full ">
-        <motion.span className="flex items-center justify-center gap-2">
-          Add to Cart <Plus size={20} />
-        </motion.span>
-      </motion.button>
-
-      <motion.button className="px-4 py-2 bg-[#4f41eb] text-white rounded-full ">
-        <motion.span>Add to Cart</motion.span>
-      </motion.button>
-
-      <motion.button className="px-4 py-2 bg-[#4f41eb] text-white rounded-full ">
-        <motion.span>Add to Cart</motion.span>
-      </motion.button>
-      {/* Add to Cart */}
     </div>
   );
 };

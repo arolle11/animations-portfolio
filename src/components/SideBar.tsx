@@ -10,7 +10,7 @@ const SideBar = () => {
   const closeSideBar = () => setIsOpen(false);
 
   const beginners_animations = [
-    { name: "ButtonAnimation", title: "Button Animation" },
+    { name: "ButtonAnimation", title: "Button Animations" },
     // { name: "HamburgerMenus", title: "Hamburger Menu" },
   ];
   return (
