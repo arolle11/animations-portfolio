@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
-export default function AnimationCard({ name, title }) {
+interface AnimationCardProps {
+  name: string;
+  title: string;
+}
+
+export default function AnimationCard({ name, title }: AnimationCardProps) {
   return (
     <Link to={`/animation/${name}`}>
       <div className="rounded overflow-hidden shadow hover:shadow-lg transition cursor-pointer bg-white">

@@ -11,6 +11,9 @@ import { useState } from "react";
 import facebook from "../../assets/images/facebook.png";
 import pinterest from "../../assets/images/pinterest.png";
 import twitter from "../../assets/images/twitter.png";
+
+type SocialPlatform = "twitter" | "facebook" | "pinterest";
+
 const ButtonAnimation = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -23,7 +26,7 @@ const ButtonAnimation = () => {
   const [showIcon, setShowIcon] = useState(false);
   const [showSocial, setShowSocial] = useState(false);
   const [showIcons, setShowIcons] = useState(false);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<SocialPlatform | null>(null);
   const controls = useAnimation();
   const [iconPos, setIconPos] = useState({ x: 0 });
   const [isClicked2, setIsClicked2] = useState(false);
@@ -64,28 +67,33 @@ const ButtonAnimation = () => {
     },
   };
 
-  const socialColors = {
+  const socialColors: Record<SocialPlatform, string> = {
     twitter: "#189cf1",
     facebook: "#0792f4",
     pinterest: "#be0519",
   };
-
-  const handleSelect = (platform, e) => {
-    const buttonRect = e.currentTarget.parentElement.getBoundingClientRect();
-    const iconRect = e.currentTarget.getBoundingClientRect();
-    const offsetX =
-      iconRect.left +
-      iconRect.width / 2 -
-      (buttonRect.left + buttonRect.width / 2);
-    setIconPos({ x: offsetX });
-    setSelected(platform);
-  };
-
-  const iconList = [
+  const iconList: { name: SocialPlatform; src: string }[] = [
     { name: "twitter", src: twitter },
     { name: "facebook", src: facebook },
     { name: "pinterest", src: pinterest },
   ];
+
+  const handleSelect = (
+    platform: SocialPlatform,
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
+    const buttonRect = e.currentTarget.parentElement?.getBoundingClientRect();
+    const iconRect = e.currentTarget.getBoundingClientRect();
+
+    if (buttonRect) {
+      const offsetX =
+        iconRect.left +
+        iconRect.width / 2 -
+        (buttonRect.left + buttonRect.width / 2);
+      setIconPos({ x: offsetX });
+      setSelected(platform);
+    }
+  };
 
   const otherContainerVariants = {
     visible: {
@@ -392,10 +400,10 @@ const ButtonAnimation = () => {
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="absolute"
         >
-          Blur-Lift
+          Lift
         </motion.span>
 
-        {/* Texte Call 🤙🏼 */}
+        {/* Texte Call */}
         <motion.span
           initial={false}
           animate={{

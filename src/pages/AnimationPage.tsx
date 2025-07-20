@@ -1,13 +1,27 @@
 import { MoveLeft } from "lucide-react";
+import type { JSX } from "react";
 import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+
+type AnimationType = {
+  component: JSX.Element;
+  title: string;
+  description: string;
+  tech: string;
+};
+
+type AnimationsType = {
+  [key: string]: AnimationType;
+};
+
 const AnimationPage = () => {
   const { name } = useParams();
-  const animations = {
+
+  const animations: AnimationsType = {
     ButtonAnimation: {
       component: <ButtonAnimation />,
-      title: "Button Animation",
+      title: "Button Animations",
       description:
         "A collection of button animations featuring smooth scaling, color transitions, and ripple effects on hover and click.",
       tech: "Tailwind CSS, Framer Motion",
@@ -16,11 +30,27 @@ const AnimationPage = () => {
       component: <HamburgerMenus />,
       title: "Hamburger Menu",
       description:
-        "creative hamburger menus animation that transforms into a close icon with smooth transitions.",
+        "Creative hamburger menus animation that transforms into a close icon with smooth transitions.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
-  const animation = animations[name];
+
+  const animation = name ? animations[name] : undefined;
+
+  if (!animation) {
+    return (
+      <div className="h-screen flex flex-col bg-white p-4 max-md:p-2 overflow-y-auto">
+        <div className="self-start mb-4 pt-8 pl-16">
+          <Link to="/" className="text-primary flex items-center gap-2">
+            <MoveLeft /> Back to Home
+          </Link>
+        </div>
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-gray-600">Animation not found</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen flex flex-col bg-white p-4 max-md:p-2 overflow-y-auto">
@@ -31,7 +61,7 @@ const AnimationPage = () => {
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center p-4">
-        <h1 className="text-2xl font-bold mb-2">{animation?.title}</h1>
+        <h1 className="text-2xl font-bold mb-2">{animation.title}</h1>
         <p className="text-center max-w-md text-gray-600 mb-4">
           {animation.description}
         </p>
@@ -56,4 +86,5 @@ const AnimationPage = () => {
     </div>
   );
 };
+
 export default AnimationPage;
