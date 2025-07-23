@@ -11,7 +11,7 @@ const SideBar = () => {
 
   const beginners_animations = [
     { name: "ButtonAnimation", title: "Button Animations" },
-    // { name: "HamburgerMenus", title: "Hamburger Menu" },
+    { name: "HamburgerMenus", title: "Hamburger Menus" },
   ];
   return (
     <div className="bg-white relative md:border-r-2 md:border-[#e8e8e8] h-full">
