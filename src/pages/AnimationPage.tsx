@@ -2,6 +2,7 @@ import { MoveLeft } from "lucide-react";
 import type { JSX } from "react";
 import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
+import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
 
 type AnimationType = {
@@ -31,6 +32,12 @@ const AnimationPage = () => {
       title: "Hamburger Menu",
       description:
         "Creative hamburger menus animation that transforms into a close icon with smooth transitions.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    CardFlip: {
+      component: <CardFlip />,
+      title: "Card Flip",
+      description: "A card flip animation that flips the card when hovered.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };

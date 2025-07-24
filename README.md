@@ -15,6 +15,7 @@ A collection of frontend animations built with React to practice and showcase an
 ## ✨ Features
 
 - Button animations
+- Hamburger Menus animations
 
 ---
 
