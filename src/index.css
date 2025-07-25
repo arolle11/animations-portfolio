@@ -23,13 +23,16 @@ body {
 }
 
 .rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.bg-royal-blue {
-  background-color: royalblue;
+  transform: rotateY(-180deg);
 }
 
 .bg-tomato {
   background-color: tomato;
+}
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+.vertical-rl-2 {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }

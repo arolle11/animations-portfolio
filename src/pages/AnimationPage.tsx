@@ -37,7 +37,7 @@ const AnimationPage = () => {
     CardFlip: {
       component: <CardFlip />,
       title: "Card Flip",
-      description: "A card flip animation that flips the card when hovered.",
+      description: "A card flip animation that flips the card when clicked.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
