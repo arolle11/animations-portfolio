@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+import SocialShare from "../components/animations/SocialShare";
 
 type AnimationType = {
   component: JSX.Element;
@@ -29,7 +30,7 @@ const AnimationPage = () => {
     },
     HamburgerMenus: {
       component: <HamburgerMenus />,
-      title: "Hamburger Menu",
+      title: "Hamburger Menus",
       description:
         "Creative hamburger menus animation that transforms into a close icon with smooth transitions.",
       tech: "Tailwind CSS, Framer Motion",
@@ -38,6 +39,13 @@ const AnimationPage = () => {
       component: <CardFlip />,
       title: "Card Flip",
       description: "A card flip animation that flips the card when clicked.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    SocialShare: {
+      component: <SocialShare />,
+      title: "Social Share",
+      description:
+        "A social share animation that shares the current page on social media.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
