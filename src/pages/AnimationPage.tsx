@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
 
 type AnimationType = {
@@ -46,6 +47,13 @@ const AnimationPage = () => {
       title: "Social Share",
       description:
         "A social share animation that shares the current page on social media.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    SearchAnimation: {
+      component: <SearchAnimation />,
+      title: "Search Animation",
+      description:
+        "A search animation that searches the current page on social media.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };

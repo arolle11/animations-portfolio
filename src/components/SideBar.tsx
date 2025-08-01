@@ -14,6 +14,7 @@ const SideBar = () => {
     { name: "HamburgerMenus", title: "Hamburger Menus" },
     { name: "CardFlip", title: "Card Flip animation" },
     { name: "SocialShare", title: "Social Share" },
+    { name: "SearchAnimation", title: "Search Animation" },
   ];
   return (
     <div className="bg-white relative md:border-r-2 md:border-[#e8e8e8] h-full">
