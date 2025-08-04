@@ -45,7 +45,7 @@ const SideBar = () => {
         <div className="px-4 pt-8">
           <ul className="text-secondary text-lg pt-4 space-y-2 cursor-pointer">
             {beginners_animations.map((animation) => (
-              <li>
+              <li key={animation.name}>
                 <Link key={animation.name} to={`/animation/${animation.name}`}>
                   {animation.title}
                 </Link>{" "}

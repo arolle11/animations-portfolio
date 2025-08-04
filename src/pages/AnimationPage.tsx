@@ -52,8 +52,7 @@ const AnimationPage = () => {
     SearchAnimation: {
       component: <SearchAnimation />,
       title: "Search Animation",
-      description:
-        "A search animation that searches the current page on social media.",
+      description: "An animation that searches data in a list.",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
@@ -99,7 +98,7 @@ const AnimationPage = () => {
 
       <footer className="mb-8 md:mb-4">
         <div className="text-center text-gray-500 text-sm py-4 text-pretty">
-          © 2025 Animations Portfolio - designed by{" "}
+          © {new Date().getFullYear()} Animations Portfolio - designed by
           <Link to="https://arollefona.me/" className="text-primary">
             arolle
           </Link>

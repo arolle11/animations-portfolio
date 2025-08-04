@@ -16,7 +16,7 @@ const SocialShare = () => {
     setIsClick(false);
   };
   return (
-    <div className="flex max-md:flex-col justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#daf9ff]  text-white gap-8 p-8 rounded-md">
+    <div className="flex justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#daf9ff]  text-white gap-8 p-8 rounded-md">
       <motion.button
         onClick={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
