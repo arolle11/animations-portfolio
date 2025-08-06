@@ -18,6 +18,7 @@ A collection of frontend animations built with React to practice and showcase an
 - Hamburger Menus animations
 - Card Flip animations
 - Search animation
+- SwipeCard
 
 ---
 
