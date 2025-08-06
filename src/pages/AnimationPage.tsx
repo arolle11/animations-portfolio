@@ -6,6 +6,7 @@ import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
+import SwipeCard from "../components/animations/Swipecard";
 
 type AnimationType = {
   component: JSX.Element;
@@ -55,6 +56,12 @@ const AnimationPage = () => {
       description: "An animation that searches data in a list.",
       tech: "Tailwind CSS, Framer Motion",
     },
+    SwipeCard: {
+      component: <SwipeCard />,
+      title: "Swipe Card",
+      description: "Cards swipe on click.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
   };
 
   const animation = name ? animations[name] : undefined;
@@ -99,7 +106,7 @@ const AnimationPage = () => {
       <footer className="mb-8 md:mb-4">
         <div className="text-center text-gray-500 text-sm py-4 text-pretty">
           © {new Date().getFullYear()} Animations Portfolio - designed by
-          <Link to="https://arollefona.me/" className="text-primary">
+          <Link to="https://arollefona.me/" className="text-primary pl-2">
             arolle
           </Link>
           . All rights reserved.
