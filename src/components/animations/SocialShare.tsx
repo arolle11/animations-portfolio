@@ -39,7 +39,7 @@ const SocialShare = () => {
       >
         {isHovered ? (
           <div className="flex flex-col">
-            {/* <button className="bg-white rounded-full p-4 "></button> */}
+            <button className="bg-white rounded-full p-4 "></button>
             <motion.span className="text-sm">
               <X className="w-4 h-4" color="white" />
             </motion.span>
