@@ -1,23 +1,23 @@
-import { X } from "lucide-react";
-import { motion } from "motion/react";
-import { useState } from "react";
+// import { X } from "lucide-react";
+// import { motion } from "motion/react";
+// import { useState } from "react";
 
 const SocialShare = () => {
-  const [isClick, setIsClick] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    setIsClick(true);
-    setTimeout(() => setIsClick(false), 200);
-  };
+  // const [isClick, setIsClick] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
+  // const handleMouseEnter = () => {
+  //   setIsHovered(true);
+  //   setIsClick(true);
+  //   setTimeout(() => setIsClick(false), 200);
+  // };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setIsClick(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setIsHovered(false);
+  //   setIsClick(false);
+  // };
   return (
     <div className="flex justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#daf9ff]  text-white gap-8 p-8 rounded-md">
-      <motion.button
+      {/* <motion.button
         onClick={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         initial={{
@@ -47,7 +47,7 @@ const SocialShare = () => {
         ) : (
           <motion.span className="text-sm">Share</motion.span>
         )}
-      </motion.button>
+      </motion.button> */}
     </div>
   );
 };

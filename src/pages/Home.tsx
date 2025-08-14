@@ -11,11 +11,10 @@ const Home = () => {
     //     maxime quo dolore, accusamus atque consequuntur odit nemo aliquid fugit.
     //   </div>
     // </div>
-    <div className="h-72 min-h-72">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis id
-      distinctio tenetur accusantium sapiente ratione, minima doloribus
-      reprehenderit voluptatum doloremque in nostrum, aspernatur deserunt
-      expedita at velit possimus error necessitatibus!
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic perspiciatis
+      sed laborum odit porro excepturi aliquid, eius natus at corporis doloribus
+      inventore laboriosam, ex reprehenderit, rem esse tempore veniam id.
     </div>
   );
 };
