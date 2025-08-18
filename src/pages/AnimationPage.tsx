@@ -102,16 +102,6 @@ const AnimationPage = () => {
           {animation.component}
         </div>
       </div>
-
-      <footer className="mb-8 md:mb-4">
-        <div className="text-center text-gray-500 text-sm py-4 text-pretty">
-          © {new Date().getFullYear()} Animations Portfolio - designed by
-          <Link to="https://arollefona.me/" className="text-primary pl-2">
-            arolle
-          </Link>
-          . All rights reserved.
-        </div>
-      </footer>
     </div>
   );
 };
