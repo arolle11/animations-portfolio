@@ -143,7 +143,7 @@ const ButtonAnimation = () => {
             borderRadius: { duration: 0.2, ease: "easeInOut" },
             scale: { type: "spring", stiffness: 500, damping: 15 },
           }}
-          className="h-12 bg-[#d35ffa] text-white flex items-center justify-center overflow-hidden"
+          className="h-12 bg-primary text-white flex items-center justify-center overflow-hidden"
         >
           <AnimatePresence>
             {isHovered ? (
@@ -521,7 +521,7 @@ const ButtonAnimation = () => {
 
       <motion.button
         onClick={handleClick2}
-        className="px-4 py-2 bg-[#4f41eb] text-white rounded-full w-44 h-12 overflow-hidden relative"
+        className="px-4 py-2 bg-[#362a89] text-white rounded-full w-44 h-12 overflow-hidden relative"
         whileTap={!isClicked2 ? { scale: 0.95 } : {}}
       >
         <AnimatePresence mode="wait">

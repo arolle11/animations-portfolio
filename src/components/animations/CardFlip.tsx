@@ -15,7 +15,7 @@ const CardFlip = () => {
     setSelectedColor(colorValue);
   };
   return (
-    <div className="flex flex-col justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#154b62] gap-8 p-8 rounded-md">
+    <div className="flex flex-col justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#f1f1f1] gap-8 p-8 rounded-md">
       <div className="w-[200px] h-[300px] perspective-1000 rounded-lg">
         <motion.div
           className="w-full h-full relative preserve-3d"

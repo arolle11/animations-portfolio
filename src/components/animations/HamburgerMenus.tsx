@@ -10,7 +10,7 @@ const HamburgerMenus = () => {
   const [isRotated, setIsRotated] = useState(false);
 
   return (
-    <div className="flex max-md:flex-col justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-gradient-to-tr from-[#feac04] to-[#fe4d4a] text-white gap-8 p-8 rounded-md">
+    <div className="flex max-md:flex-col justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#f1f1f1] gap-8 p-8 rounded-md">
       <motion.div
         className="relative w-10 h-10"
         onMouseEnter={() => setActive(true)}
@@ -23,7 +23,7 @@ const HamburgerMenus = () => {
             rotate: active ? 45 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
         <motion.span
           initial={{ y: 0, opacity: 1, rotate: 0 }}
@@ -33,7 +33,7 @@ const HamburgerMenus = () => {
             rotate: active ? 0 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
         <motion.span
           initial={{ y: 8, opacity: 1, rotate: 0 }}
@@ -42,7 +42,7 @@ const HamburgerMenus = () => {
             rotate: active ? -45 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
       </motion.div>
 
@@ -58,7 +58,7 @@ const HamburgerMenus = () => {
             rotate: isActive ? 45 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
         <motion.span
           initial={{ y: 4, opacity: 1, rotate: 0 }}
@@ -67,7 +67,7 @@ const HamburgerMenus = () => {
             rotate: isActive ? -45 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
       </motion.div>
 
@@ -84,7 +84,7 @@ const HamburgerMenus = () => {
             x: 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-0 h-[4px] w-4 bg-white rounded-[2px] -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-0 h-[4px] w-4 bg-secondary rounded-[2px] -translate-y-1/2 origin-center"
         ></motion.span>
 
         <motion.span
@@ -101,7 +101,7 @@ const HamburgerMenus = () => {
             damping: 20,
             delay: 0.1,
           }}
-          className="absolute top-1/2 left-0 h-[4px] w-8 bg-white rounded-[2px] -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-0 h-[4px] w-8 bg-secondary rounded-[2px] -translate-y-1/2 origin-center"
         ></motion.span>
 
         <motion.span
@@ -114,7 +114,7 @@ const HamburgerMenus = () => {
             width: isOpen ? 32 : 24,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-0 h-[4px] w-6 bg-white rounded-[2px] -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-0 h-[4px] w-6 bg-secondary rounded-[2px] -translate-y-1/2 origin-center"
         ></motion.span>
       </motion.div>
 
@@ -131,7 +131,7 @@ const HamburgerMenus = () => {
             y: activated ? -10 : -8,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-0 h-[4px] w-4 bg-white rounded-[2px] -translate-y-1/2 origin-left"
+          className="absolute top-1/2 left-0 h-[4px] w-4 bg-secondary rounded-[2px] -translate-y-1/2 origin-left"
         />
 
         <motion.span
@@ -142,7 +142,7 @@ const HamburgerMenus = () => {
             x: activated ? 8 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-0 h-[4px] w-8 bg-white rounded-[2px] -translate-y-1/2 origin-left"
+          className="absolute top-1/2 left-0 h-[4px] w-8 bg-secondary rounded-[2px] -translate-y-1/2 origin-left"
         />
 
         <motion.span
@@ -154,7 +154,7 @@ const HamburgerMenus = () => {
             width: activated ? 16 : 24,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="absolute top-1/2 left-0 h-[4px] w-6 bg-white rounded-[2px] -translate-y-1/2 origin-left"
+          className="absolute top-1/2 left-0 h-[4px] w-6 bg-secondary rounded-[2px] -translate-y-1/2 origin-left"
         />
       </motion.div>
 
@@ -179,7 +179,7 @@ const HamburgerMenus = () => {
               damping: 20,
             },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
 
         {/* Middle bar */}
@@ -192,7 +192,7 @@ const HamburgerMenus = () => {
           transition={{
             opacity: { delay: 0.15, duration: 0.2 },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
 
         {/* Bottom bar */}
@@ -211,7 +211,7 @@ const HamburgerMenus = () => {
               damping: 20,
             },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
       </motion.div>
 
@@ -235,7 +235,7 @@ const HamburgerMenus = () => {
             damping: 20,
             delay: 0.5,
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
         <motion.span
           initial={{ y: 0, opacity: 1, rotate: 0 }}
@@ -250,7 +250,7 @@ const HamburgerMenus = () => {
             damping: 20,
             delay: 0.5,
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
         <motion.span
           initial={{ y: 8, opacity: 1, rotate: 0 }}
@@ -264,7 +264,7 @@ const HamburgerMenus = () => {
             damping: 20,
             delay: 0.5,
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         ></motion.span>
       </motion.div>
 
@@ -292,7 +292,7 @@ const HamburgerMenus = () => {
               damping: 20,
             },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
 
         {/* Middle bar */}
@@ -305,7 +305,7 @@ const HamburgerMenus = () => {
           transition={{
             opacity: { delay: 0.15, duration: 0.2 },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
 
         {/* Bottom bar */}
@@ -324,7 +324,7 @@ const HamburgerMenus = () => {
               damping: 20,
             },
           }}
-          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-white rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
+          className="absolute top-1/2 left-1/2 h-[4px] w-8 bg-secondary rounded-[2px] -translate-x-1/2 -translate-y-1/2 origin-center"
         />
       </motion.div>
     </div>
