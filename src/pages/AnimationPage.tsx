@@ -7,6 +7,7 @@ import HamburgerMenus from "../components/animations/HamburgerMenus";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
 import SwipeCard from "../components/animations/Swipecard";
+import TabSwitcher from "../components/animations/TabSwitcher";
 
 type AnimationType = {
   component: JSX.Element;
@@ -62,6 +63,12 @@ const AnimationPage = () => {
       description: "Cards swipe on click.",
       tech: "Tailwind CSS, Framer Motion",
     },
+    TabSwitcher: {
+      component: <TabSwitcher />,
+      title: "Tab Switcher",
+      description: "Tab Switcher on hover.",
+      tech: "Tailwind CSS, Framer Motion",
+    },
   };
 
   const animation = name ? animations[name] : undefined;
@@ -84,7 +91,10 @@ const AnimationPage = () => {
   return (
     <div className="h-screen flex flex-col bg-white p-4 max-md:p-2 overflow-y-auto">
       <div className="self-start mb-4 pt-8 pl-16">
-        <Link to="/" className="text-primary flex items-center gap-2">
+        <Link
+          to="/"
+          className="text-secondary font-bold flex items-center gap-2"
+        >
           <MoveLeft /> Back to Home
         </Link>
       </div>

@@ -26,6 +26,7 @@ const SideBar = () => {
     { name: "SocialShare", title: "Social Share" },
     { name: "SearchAnimation", title: "Search Animation" },
     { name: "SwipeCard", title: "Swipe card" },
+    { name: "TabSwitcher", title: "Tab Switcher" },
   ];
   return (
     <div className="relative h-full">
@@ -88,7 +89,7 @@ const SideBar = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/aboutMe"
                 className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100"
               >
                 <User size={18} />
@@ -97,7 +98,7 @@ const SideBar = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/aboutProject"
                 className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100"
               >
                 <FolderDot size={18} />
