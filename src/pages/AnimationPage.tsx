@@ -4,10 +4,10 @@ import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+import PlayfulChips from "../components/animations/PlayfulChips";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
 import SwipeCard from "../components/animations/Swipecard";
-import TabSwitcher from "../components/animations/TabSwitcher";
 
 type AnimationType = {
   component: JSX.Element;
@@ -63,10 +63,10 @@ const AnimationPage = () => {
       description: "Cards swipe on click.",
       tech: "Tailwind CSS, Framer Motion",
     },
-    TabSwitcher: {
-      component: <TabSwitcher />,
-      title: "Tab Switcher",
-      description: "Tab Switcher on hover.",
+    PlayfulChips: {
+      component: <PlayfulChips />,
+      title: "Playful Chips",
+      description: "Playful Chips Animation",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
