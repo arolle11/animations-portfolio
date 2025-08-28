@@ -98,7 +98,7 @@ const PlayfulChips = () => {
             darkMode ? "text-white" : "text-black"
           }`}
         >
-          <label htmlFor="multi-select">Mutiple Select</label>
+          <label htmlFor="multi-select">Multiple Select</label>
           <input
             type="checkbox"
             id="multi-select"
