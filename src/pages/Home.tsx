@@ -1,11 +1,12 @@
 import {
-  ChevronRight,
+  ArrowUpRight,
   CircleArrowUp,
   Menu,
   Search,
   Square,
   SquareChartGantt,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const items = [
@@ -15,63 +16,142 @@ const Home = () => {
     { icon: <Menu size={12} />, label: "Hamburger animations" },
     { icon: <Square size={12} />, label: "Cards animations" },
   ];
-  return (
-    <div className="flex flex-col justify-center w-full min-h-screen px-4">
-      <h1 className="text-4xl text-center">Explore Animations with Bold</h1>
 
-      {/* Responsive loop */}
-      <div className="flex flex-col sm:flex-row pt-8 gap-4 justify-center items-center">
+  const animations = [
+    {
+      name: "ButtonAnimation",
+      title: "Button Animations",
+      description:
+        "Interactive buttons with hover effects and smooth transitions",
+      tech: "Framer Motion",
+    },
+    {
+      name: "HamburgerMenus",
+      title: "Hamburger Menus",
+      description: "Creative menu transitions and morphing animations",
+      tech: "CSS Transforms",
+    },
+    {
+      name: "CardFlip",
+      title: "Card Flip",
+      description: "3D card animations with perspective effects",
+      tech: "CSS 3D",
+    },
+    {
+      name: "SearchAnimation",
+      title: "Search Animation",
+      description: "Expanding search with dynamic filtering",
+      tech: "React Hooks",
+    },
+    {
+      name: "SwipeCard",
+      title: "Swipe Card",
+      description: "Stack-based card interactions",
+      tech: "Gesture Handling",
+    },
+    {
+      name: "PlayfulChips",
+      title: "Selection Chips",
+      description: "Interactive multi-select components",
+      tech: "State Management",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col w-full min-h-screen px-4">
+      {/* Simple header */}
+      <div className="text-center py-16">
+        <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+          Animation Collection
+        </h1>
+        <p className="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+          A curated set of interface animations and interactions built with
+          modern web technologies.
+        </p>
+      </div>
+
+      {/* Category filters - simple and clean */}
+      <div className="flex flex-wrap justify-center gap-2 mb-16">
         {items.map((item, index) => (
           <span
             key={index}
-            className="flex items-center gap-2 rounded-xl border border-gray-400 px-4 py-2 hover:bg-gray-100 transition-transform transform hover:scale-105 cursor-pointer"
+            className="flex items-center gap-2 border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:border-gray-400 transition-colors cursor-pointer"
           >
             {item.icon} {item.label}
           </span>
         ))}
       </div>
 
-      {/* Section en bas */}
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center pt-16 px-6 text-center sm:text-left gap-4">
-        <div className="flex flex-col gap-2">
-          <h1 className="text-xl font-semibold">
-            Let your interfaces speak for themselves
-          </h1>
-          <span className="text-gray-600">
-            Every interaction is an opportunity to captivate users.
-          </span>
+      {/* Section intro */}
+      <div className="flex justify-between items-end mb-8 px-2">
+        <div>
+          <h2 className="text-2xl font-medium text-gray-900 mb-1">
+            Latest Work
+          </h2>
+          <p className="text-gray-600">Interactive demos and code examples</p>
         </div>
-        <p className="flex items-center gap-2 cursor-pointer hover:underline">
-          Browse All <ChevronRight size={16} />
-        </p>
+        <Link
+          to="/animations"
+          className="text-gray-700 hover:text-gray-900 text-sm flex items-center gap-1 group"
+        >
+          View all
+          <ArrowUpRight
+            size={14}
+            className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+          />
+        </Link>
       </div>
 
-      {/* animations */}
-      <div className="grid max:md-grid-flow-col md:grid-cols-4 gap-4 pt-16 px-6">
-        <div className=" border border-amber-200 rounded-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, fugiat
-          architecto placeat quis exercitationem, cupiditate, suscipit officiis
-          dicta consequuntur adipisci impedit error temporibus hic optio! Ad
-          dolores expedita magnam consequatur.
-        </div>
-        <div className=" border border-amber-200 rounded-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, fugiat
-          architecto placeat quis exercitationem, cupiditate, suscipit officiis
-          dicta consequuntur adipisci impedit error temporibus hic optio! Ad
-          dolores expedita magnam consequatur.
-        </div>
-        <div className=" border border-amber-200 rounded-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, fugiat
-          architecto placeat quis exercitationem, cupiditate, suscipit officiis
-          dicta consequuntur adipisci impedit error temporibus hic optio! Ad
-          dolores expedita magnam consequatur.
-        </div>
-        <div className=" border border-amber-200 rounded-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, fugiat
-          architecto placeat quis exercitationem, cupiditate, suscipit officiis
-          dicta consequuntur adipisci impedit error temporibus hic optio! Ad
-          dolores expedita magnam consequatur.
-        </div>
+      {/* Clean animations grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {animations.map((animation) => (
+          <Link
+            key={animation.name}
+            to={`/animation/${animation.name}`}
+            className="group block"
+          >
+            <article className="border border-gray-200 bg-white hover:shadow-sm transition-all duration-200">
+              {/* Simple header area */}
+              <div className="h-24 bg-gray-50 border-b border-gray-100 flex items-center justify-between px-4">
+                <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+                <span className="text-xs text-gray-500 font-mono">
+                  {animation.tech}
+                </span>
+              </div>
+
+              {/* Content */}
+              <div className="p-4">
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-lg font-medium text-gray-900 group-hover:text-gray-700 transition-colors">
+                    {animation.title}
+                  </h3>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-gray-400 group-hover:text-gray-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 ml-2"
+                  />
+                </div>
+
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">
+                  {animation.description}
+                </p>
+
+                <div className="text-xs text-gray-500">
+                  Interactive demo available
+                </div>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
+
+      {/* Simple footer section */}
+      <div className="text-center py-12 border-t border-gray-100">
+        <p className="text-gray-600 mb-4">
+          More animations and experiments coming soon
+        </p>
+        <button className="border border-gray-300 px-6 py-2 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-colors">
+          Get Updates
+        </button>
       </div>
     </div>
   );

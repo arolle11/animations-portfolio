@@ -27,6 +27,7 @@ const SideBar = () => {
     { name: "SearchAnimation", title: "Search Animation" },
     { name: "SwipeCard", title: "Swipe card" },
     { name: "PlayfulChips", title: "Playful Chips" },
+    { name: "MessagingAppInput", title: "Messaging App Input" },
   ];
   return (
     <div className="relative h-full">

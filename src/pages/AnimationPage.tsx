@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+import MessagingAppInput from "../components/animations/MessagingAppInput";
 import PlayfulChips from "../components/animations/PlayfulChips";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
@@ -67,6 +68,12 @@ const AnimationPage = () => {
       component: <PlayfulChips />,
       title: "Playful Chips",
       description: "Playful Chips Animation",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    MessagingAppInput: {
+      component: <MessagingAppInput />,
+      title: "Messaging App Input",
+      description: "Messaging App Input",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
