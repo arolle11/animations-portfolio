@@ -11,7 +11,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(true);
 
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
@@ -112,7 +112,7 @@ const SideBar = () => {
                 className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100"
               >
                 <Settings size={18} />
-                Paramètres
+                Settings
               </Link>
             </li>
           </ul>
