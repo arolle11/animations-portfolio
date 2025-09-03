@@ -6,6 +6,7 @@ import CardFlip from "../components/animations/CardFlip";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
 import MessagingAppInput from "../components/animations/MessagingAppInput";
 import PlayfulChips from "../components/animations/PlayfulChips";
+import RadioButton from "../components/animations/RadioButton";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
 import SwipeCard from "../components/animations/Swipecard";
@@ -72,6 +73,12 @@ const AnimationPage = () => {
     },
     MessagingAppInput: {
       component: <MessagingAppInput />,
+      title: "Messaging App Input",
+      description: "Messaging App Input",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    RadioButton: {
+      component: <RadioButton />,
       title: "Messaging App Input",
       description: "Messaging App Input",
       tech: "Tailwind CSS, Framer Motion",
