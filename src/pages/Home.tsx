@@ -149,7 +149,7 @@ const Home = () => {
         <p className="text-gray-600 mb-4">
           More animations and experiments coming soon
         </p>
-        <button className="border border-blue-500 px-6 py-2 text-blue-600 hover:bg-blue-50 hover:border-blue-600 transition-colors">
+        <button className="border border-primay px-6 py-2 text-primary hover:bg-blue-50 hover:border-blue-600 transition-colors">
           Get Updates
         </button>
       </div>
