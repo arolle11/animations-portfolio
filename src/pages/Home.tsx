@@ -88,7 +88,7 @@ const Home = () => {
           <h2 className="text-2xl font-medium text-secondary mb-1">
             Latest Work
           </h2>
-          <p className="text-secondary">Interactive demos and code examples</p>
+          <p className="text-secondary">Interactive demos</p>
         </div>
         <Link
           to="/animations"
@@ -149,7 +149,7 @@ const Home = () => {
         <p className="text-gray-600 mb-4">
           More animations and experiments coming soon
         </p>
-        <button className="border border-primay px-6 py-2 text-primary hover:bg-blue-50 hover:border-blue-600 transition-colors">
+        <button className="border border-primay px-6 py-2 text-primary hover:bg-blue-50">
           Get Updates
         </button>
       </div>

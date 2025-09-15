@@ -20,6 +20,7 @@ A collection of frontend animations built with React to practice and showcase an
 - Search animation
 - SwipeCard
 - PlayfulChips
+- To Do List
 
 ---
 

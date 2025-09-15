@@ -29,6 +29,7 @@ const SideBar = () => {
     { name: "PlayfulChips", title: "Playful Chips" },
     { name: "MessagingAppInput", title: "Messaging App Input" },
     { name: "RadioButton", title: "Radio Button" },
+    { name: "ToDoList", title: "To do List" },
   ];
   return (
     <div className="relative h-full">

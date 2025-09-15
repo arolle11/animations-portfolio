@@ -10,6 +10,7 @@ import RadioButton from "../components/animations/RadioButton";
 import SearchAnimation from "../components/animations/SearchAnimation";
 import SocialShare from "../components/animations/SocialShare";
 import SwipeCard from "../components/animations/Swipecard";
+import TodoList from "../components/animations/TodoList";
 
 type AnimationType = {
   component: JSX.Element;
@@ -81,6 +82,12 @@ const AnimationPage = () => {
       component: <RadioButton />,
       title: "Messaging App Input",
       description: "Messaging App Input",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    ToDoList: {
+      component: <TodoList />,
+      title: "To Do List",
+      description: "To Do List Micro Animation",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
