@@ -19,7 +19,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gray-100 min-w-[500px] min-h-[500px] p-8">
+    <div className="flex items-center justify-center bg-gray-100 min-w-[500px] min-h-[500px] p-8 cursor-pointer">
       <div className="flex flex-col gap-4">
         {datas.map((d, index) => {
           const isCheck = checkedItems[index];
