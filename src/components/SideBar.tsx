@@ -30,6 +30,8 @@ const SideBar = () => {
     { name: "MessagingAppInput", title: "Messaging App Input" },
     { name: "RadioButton", title: "Radio Button" },
     { name: "ToDoList", title: "To do List" },
+    { name: "CheckboxInteraction", title: "Checkbox Interaction" },
+    { name: "LoadingAnimation", title: "Loading Animation" },
   ];
   return (
     <div className="relative h-full">

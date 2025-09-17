@@ -21,6 +21,8 @@ A collection of frontend animations built with React to practice and showcase an
 - SwipeCard
 - PlayfulChips
 - To Do List
+- Loading Animation
+- Checkbox Interaction
 
 ---
 

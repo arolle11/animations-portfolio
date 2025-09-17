@@ -3,7 +3,9 @@ import type { JSX } from "react";
 import { Link, useParams } from "react-router-dom";
 import ButtonAnimation from "../components/animations/ButtonAnimation";
 import CardFlip from "../components/animations/CardFlip";
+import CheckboxInteraction from "../components/animations/CheckboxInteraction";
 import HamburgerMenus from "../components/animations/HamburgerMenus";
+import LoadingAnimation from "../components/animations/LoadingAnimation";
 import MessagingAppInput from "../components/animations/MessagingAppInput";
 import PlayfulChips from "../components/animations/PlayfulChips";
 import RadioButton from "../components/animations/RadioButton";
@@ -88,6 +90,18 @@ const AnimationPage = () => {
       component: <TodoList />,
       title: "To Do List",
       description: "To Do List Micro Animation",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    CheckboxInteraction: {
+      component: <CheckboxInteraction />,
+      title: "Checkbox Interaction",
+      description: "Checkbox Interaction Animation",
+      tech: "Tailwind CSS, Framer Motion",
+    },
+    LoadingAnimation: {
+      component: <LoadingAnimation />,
+      title: "Loading Animation",
+      description: "Loading Animation",
       tech: "Tailwind CSS, Framer Motion",
     },
   };
