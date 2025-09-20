@@ -1,3 +1,5 @@
+import { Pencil, Trash } from "lucide-react";
+
 export default function CheckboxInteraction() {
   const items = [
     "Dresses",
@@ -15,10 +17,16 @@ export default function CheckboxInteraction() {
       {items.map((item, index) => (
         <div
           key={index}
-          className="flex gap-2 items-center border-b border-b-gray-400 pb-4 w-full"
+          className="flex items-center justify-between border-b border-b-gray-400 pb-4 w-full"
         >
-          <span className="rounded-sm border border-gray-400 w-6 h-6"> </span>
-          <p className="text-base">{item}</p>
+          <div className="flex gap-2">
+            <span className="rounded-sm border border-gray-400 w-6 h-6"> </span>
+            <p className="text-base">{item}</p>
+          </div>
+          <div className="flex gap-2">
+            <Pencil size={16} color="gray" />
+            <Trash size={16} color="gray" />
+          </div>
         </div>
       ))}
     </div>
