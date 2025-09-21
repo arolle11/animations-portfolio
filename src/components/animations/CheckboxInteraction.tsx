@@ -132,11 +132,16 @@ export default function CheckboxInteraction() {
 
           {/* Bordure bleue animée */}
           <motion.div
-            className="absolute bottom-0 left-0 h-0.5 bg-primary"
-            initial={{ width: 0 }}
+            className="absolute -bottom-4 h-0.5 bg-primary"
+            initial={{
+              width: 0,
+              left: 8,
+              opacity: 0,
+            }}
             animate={{
               width: hasSelectedItems ? "100%" : "0%",
               opacity: hasSelectedItems ? 1 : 0,
+              left: hasSelectedItems ? "8%" : "0%",
             }}
             transition={{
               duration: 0.6,
@@ -151,21 +156,20 @@ export default function CheckboxInteraction() {
                 ref={dropdownRef}
                 initial={{
                   opacity: 0,
-                  y: -10,
-                  scale: 0.95,
-                  height: 0,
+                  y: -20,
+                  scaleY: 0,
+                  transformOrigin: "top",
                 }}
                 animate={{
                   opacity: 1,
                   y: 0,
-                  scale: 1,
-                  height: "auto",
+                  scaleY: 1,
                 }}
                 exit={{
                   opacity: 0,
-                  y: -10,
-                  scale: 0.95,
-                  height: 0,
+                  y: 20,
+                  scaleY: 0,
+                  transformOrigin: "bottom",
                 }}
                 transition={{
                   duration: 0.4,
@@ -173,7 +177,11 @@ export default function CheckboxInteraction() {
                   stiffness: 300,
                   damping: 25,
                 }}
-                className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 top-full mt-1 overflow-hidden"
+                className="absolute z-10 bg-[#f3f4f6] shadow-gray-200 divide-y divide-gray-100 rounded-b-lg shadow-lg top-full mt-4 overflow-hidden"
+                style={{
+                  width: "calc(100% - 16px)",
+                  left: "8px",
+                }}
               >
                 <motion.ul
                   className="py-2 text-sm text-gray-700"
