@@ -23,7 +23,7 @@ const SideBar = () => {
     { name: "ButtonAnimation", title: "Button Animations" },
     { name: "HamburgerMenus", title: "Hamburger Menus" },
     { name: "CardFlip", title: "Card Flip animation" },
-    { name: "SocialShare", title: "Social Share" },
+    { name: "SubmitButton", title: "Submit Button" },
     { name: "SearchAnimation", title: "Search Animation" },
     { name: "SwipeCard", title: "Swipe card" },
     { name: "PlayfulChips", title: "Playful Chips" },

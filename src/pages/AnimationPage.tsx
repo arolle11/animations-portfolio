@@ -10,9 +10,9 @@ import MessagingAppInput from "../components/animations/MessagingAppInput";
 import PlayfulChips from "../components/animations/PlayfulChips";
 import RadioButton from "../components/animations/RadioButton";
 import SearchAnimation from "../components/animations/SearchAnimation";
-import SocialShare from "../components/animations/SocialShare";
 import SwipeCard from "../components/animations/Swipecard";
 import TodoList from "../components/animations/TodoList";
+import SubmitButton from "../components/animations/SubmitButton";
 
 type AnimationType = {
   component: JSX.Element;
@@ -49,11 +49,10 @@ const AnimationPage = () => {
       description: "A card flip animation that flips the card when clicked.",
       tech: "Tailwind CSS, Framer Motion",
     },
-    SocialShare: {
-      component: <SocialShare />,
-      title: "Social Share",
-      description:
-        "A social share animation that shares the current page on social media.",
+    SubmitButton: {
+      component: <SubmitButton />,
+      title: "Submit Button",
+      description: "A simple microinteraction for a form submit button.",
       tech: "Tailwind CSS, Framer Motion",
     },
     SearchAnimation: {
