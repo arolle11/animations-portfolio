@@ -4,6 +4,12 @@ A collection of frontend animations built with React to practice and showcase an
 
 ---
 
+## Demo
+
+- [**Bold**](https://animations-portfolio-coral.vercel.app/)
+
+---
+
 ## 🧰 Tech Stack
 
 - [**React js**](https://react.dev/) – The library for web and native user interfaces.
@@ -14,15 +20,12 @@ A collection of frontend animations built with React to practice and showcase an
 
 ## ✨ Features
 
-- Button animations
-- Hamburger Menus animations
-- Card Flip animations
-- Search animation
-- SwipeCard
-- PlayfulChips
-- To Do List
-- Loading Animation
-- Checkbox Interaction
+- Buttons
+- Hamburger Menus
+- Cards
+- Search bars
+- Loading Animations
+- etc...
 
 ---
 
