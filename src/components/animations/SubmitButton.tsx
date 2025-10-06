@@ -90,7 +90,7 @@ export default function SubmitButton() {
             }}
             transition={{ duration: 0.2 }}
           >
-            Submitb
+            Submit
           </motion.span>
           {state === "success" && (
             <motion.svg
