@@ -6,7 +6,7 @@ export default function SubmitButton() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let progressInterval: NodeJS.Timeout;
+    let progressInterval: number;
     if (state === "loading") {
       progressInterval = setInterval(() => {
         setProgress((prev) => {
