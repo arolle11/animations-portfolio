@@ -76,13 +76,13 @@ const AnimationPage = () => {
     MessagingAppInput: {
       component: <MessagingAppInput />,
       title: "Messaging App Input",
-      description: "Messaging App Input",
+      description: "Messaging App Input UI - Micro Animation",
       tech: "Tailwind CSS, Framer Motion",
     },
     RadioButton: {
       component: <RadioButton />,
-      title: "Messaging App Input",
-      description: "Messaging App Input",
+      title: "RadioButton",
+      description: "RadioButton Animation",
       tech: "Tailwind CSS, Framer Motion",
     },
     ToDoList: {

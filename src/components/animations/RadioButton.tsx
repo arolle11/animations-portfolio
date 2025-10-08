@@ -1,12 +1,5 @@
-const RadioButton = () => {
+export default function RadioButton() {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum rem
-      asperiores quisquam distinctio quod placeat, tempora fugiat alias laborum
-      sequi facilis eos iure inventore odit voluptates similique? Illum,
-      officiis.
-    </div>
+    <div className="cursor-pointer flex justify-center items-center md:min-w-[500px] min-w-[300px] min-h-[500px] bg-[#f1f1f1] text-white gap-8 p-8 rounded-md"></div>
   );
-};
-
-export default RadioButton;
+}
