@@ -59,7 +59,7 @@ const TodoList = () => {
 
               {/* Label avec strikethrough animé */}
               <motion.span
-                className="relative text-base"
+                className="relative text-base "
                 animate={{ color: isCheck ? "#9ca3af" : "#111827" }}
                 transition={{ duration: 0.3 }}
               >

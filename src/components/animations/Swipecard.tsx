@@ -44,9 +44,9 @@ const SwipeCard = () => {
     setIsAnimating(false);
   };
   return (
-    <div className="flex items-center justify-center bg-gray-100  min-w-[500px] min-h-[500px] p-8">
+    <div className="flex items-center justify-center bg-gray-100 min-w-[300px] md:min-w-[500px] min-h-[500px] p-4 md:p-8">
       <div
-        className="relative w-[400px] h-[180px]"
+        className="relative w-[280px] md:w-[400px] h-[200px] md:h-[180px]"
         style={{
           perspective: "1200px",
         }}
@@ -58,7 +58,7 @@ const SwipeCard = () => {
             return (
               <motion.div
                 key={card.id}
-                className="absolute w-full p-5 bg-white rounded-2xl shadow-xl cursor-pointer"
+                className="absolute w-full p-3 md:p-5 bg-white rounded-2xl shadow-xl cursor-pointer"
                 style={{
                   transformStyle: "preserve-3d",
                   zIndex: stack.length - i,
@@ -89,21 +89,27 @@ const SwipeCard = () => {
                 }}
                 onClick={isTop ? handleCardClick : undefined}
               >
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3">
                   <div
-                    className=" rounded-full flex justify-center h-1/2 p-2"
+                    className="rounded-full flex justify-center items-center h-8 w-8 md:h-10 md:w-10 p-1.5 md:p-2"
                     style={{ backgroundColor: card.iconBg }}
                   >
-                    <Icon size={20} style={{ color: card.color }} />
+                    <Icon
+                      size={16}
+                      className="md:w-5 md:h-5"
+                      style={{ color: card.color }}
+                    />
                   </div>
-                  <div className="flex flex-col gap-1">
+                  <div className="flex flex-col gap-0.5 md:gap-1">
                     <h3
                       style={{ color: card.color }}
-                      className="text-blue-600 font-semibold"
+                      className="text-blue-600 font-semibold text-sm md:text-base"
                     >
                       {card.title}
                     </h3>
-                    <p className="text-gray-600 text-xs">{card.desc}</p>
+                    <p className="text-gray-600 text-[11px] md:text-xs">
+                      {card.desc}
+                    </p>
                   </div>
                 </div>
               </motion.div>

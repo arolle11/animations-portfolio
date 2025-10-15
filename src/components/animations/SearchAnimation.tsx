@@ -38,7 +38,7 @@ const SearchAnimation = () => {
 
       // 2. Agrandissement en largeur pendant qu’il est toujours décalé
       await controls.start({
-        width: 350,
+        width: window.innerWidth < 768 ? 250 : 350,
         justifyContent: "space-between",
         backgroundColor: "#ffffff",
         transition: {
@@ -120,7 +120,7 @@ const SearchAnimation = () => {
         <motion.div
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="p-6 rounded-3xl flex flex-col  items-center shadow-gray-300 shadow-md relative"
+          className="p-4 md:p-6 rounded-3xl flex flex-col items-center shadow-gray-300 shadow-md relative"
           animate={controls}
           initial={{
             x: 0,
@@ -138,7 +138,7 @@ const SearchAnimation = () => {
                 transition: { duration: 0.3 },
               }}
             >
-              <Search size={24} />
+              <Search size={20} className="md:w-6 md:h-6" />
             </motion.span>
 
             {isHovered && (
@@ -151,7 +151,7 @@ const SearchAnimation = () => {
                 <input
                   type="text"
                   placeholder="search..."
-                  className="border-none outline-none text-lg placeholder-gray-400 text-black"
+                  className="border-none outline-none w-full text-sm md:text-base placeholder-gray-400 text-black"
                   value={inputValue}
                   onChange={handleChange}
                 />
@@ -176,7 +176,7 @@ const SearchAnimation = () => {
                   },
                 }}
               >
-                <Plus size={28} color="black" />
+                <Plus size={24} className="md:w-7 md:h-7" color="black" />
               </motion.div>
             )}
           </div>
@@ -201,7 +201,7 @@ const SearchAnimation = () => {
                     filteredResults.map((item, index) => (
                       <motion.div
                         key={index}
-                        className=" text-gray-500 flex flex-col mt-2 gap-2"
+                        className="text-gray-500 flex flex-col mt-2 gap-2 text-sm md:text-base px-2"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{
                           opacity: 1,
@@ -214,7 +214,7 @@ const SearchAnimation = () => {
                     ))
                   ) : (
                     <motion.div
-                      className="p-3 text-gray-500 text-left"
+                      className="p-3 text-gray-500 text-left text-sm md:text-lg"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                     >
